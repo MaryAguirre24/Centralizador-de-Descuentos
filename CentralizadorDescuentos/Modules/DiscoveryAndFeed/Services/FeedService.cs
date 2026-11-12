@@ -1,5 +1,6 @@
 ﻿using CentralizadorDescuentos.Modules.DiscoveryAndFeed.ViewModels;
 using CentralizadorDescuentos.Web.Shared.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CentralizadorDescuentos.Modules.DiscoveryAndFeed.Services
 {
@@ -21,7 +22,7 @@ namespace CentralizadorDescuentos.Modules.DiscoveryAndFeed.Services
                     Id = o.Id,
                     StoreName = o.StoreName,
                     Title = o.Title,
-                    Restrictions = o.KeyRestrictions.Split('|', StringSplitOptions.RemoveEmptyEntries).ToList(),
+                    Restrictions = o.RestrictionsJson.Split('|', StringSplitOptions.RemoveEmptyEntries).ToList(),
                     MinimumSpend = o.MinimumSpend,
                     ExpirationDaysLeft = (o.ExpirationDate - DateTime.UtcNow).Days,
                     PromoCode = o.PromoCode,

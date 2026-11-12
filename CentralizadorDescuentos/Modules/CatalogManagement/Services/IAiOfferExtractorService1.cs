@@ -1,4 +1,6 @@
-﻿namespace CentralizadorDescuentos.Modules.CatalogManagement.Services
+﻿using CentralizadorDescuentos.Modules.CatalogManagement.ViewModels;
+
+namespace CentralizadorDescuentos.Modules.CatalogManagement.Services
 {
     public interface IAiOfferExtractorService1
     {
