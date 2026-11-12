@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import React from 'react';
-import OfferFeed from './components/OfferFeed';
 
-export default function App() {
-  return (
-    <main style={{ backgroundColor: '#f9fafb', minHeight: '100vh', padding: '20px 0' }}>
-      <OfferFeed apiBaseUrl="http://localhost:5000/api" />
-    </main>
-  );
-}
-export default function OfferFeed({ apiBaseUrl = 'http://localhost:5000/api' }) {
+export default function OfferFeed({ apiBaseUrl = 'http://localhost:7236/api' }) {
   const [offers, setOffers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [copiedId, setCopiedId] = useState(null);
@@ -125,7 +116,7 @@ export default function OfferFeed({ apiBaseUrl = 'http://localhost:5000/api' }) 
                   >
                     {offer.expirationDaysLeft === 0
                       ? 'Vence hoy'
-                      : `Vence en ${offer.expirationDaysLeft} días`}
+                      : `Vence en ${offer.expirationDaysLeft} dias`}
                   </span>
                 </div>
               </div>

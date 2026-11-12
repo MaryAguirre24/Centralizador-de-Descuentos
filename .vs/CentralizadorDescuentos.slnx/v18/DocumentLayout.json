@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\VS2026\\Centralizador-de-Descuentos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|c:\\vs2026\\centralizador-de-descuentos\\centralizadordescuentos\\modules\\discoveryandfeed\\services\\feedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|solutionrelative:centralizadordescuentos\\modules\\discoveryandfeed\\services\\feedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|c:\\vs2026\\centralizador-de-descuentos\\centralizadordescuentos\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|solutionrelative:centralizadordescuentos\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|c:\\vs2026\\centralizador-de-descuentos\\centralizadordescuentos\\models\\offer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|solutionrelative:centralizadordescuentos\\models\\offer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|c:\\vs2026\\centralizador-de-descuentos\\centralizadordescuentos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|solutionrelative:centralizadordescuentos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|c:\\vs2026\\centralizador-de-descuentos\\centralizadordescuentos\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|solutionrelative:centralizadordescuentos\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|c:\\vs2026\\centralizador-de-descuentos\\centralizadordescuentos\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|solutionrelative:centralizadordescuentos\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|c:\\vs2026\\centralizador-de-descuentos\\centralizadordescuentos\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|solutionrelative:centralizadordescuentos\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|c:\\vs2026\\centralizador-de-descuentos\\centralizadordescuentos\\modules\\discoveryandfeed\\services\\feedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|solutionrelative:centralizadordescuentos\\modules\\discoveryandfeed\\services\\feedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|c:\\vs2026\\centralizador-de-descuentos\\centralizadordescuentos\\models\\offer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CE9E0A5-5101-A73E-D740-4B7FD94AE05B}|CentralizadorDescuentos\\CentralizadorDescuentos.csproj|solutionrelative:centralizadordescuentos\\models\\offer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -67,6 +75,30 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\VS2026\\Centralizador-de-Descuentos\\CentralizadorDescuentos\\Program.cs",
+              "RelativeDocumentMoniker": "CentralizadorDescuentos\\Program.cs",
+              "ToolTip": "C:\\VS2026\\Centralizador-de-Descuentos\\CentralizadorDescuentos\\Program.cs",
+              "RelativeToolTip": "CentralizadorDescuentos\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-12T03:11:54.924Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\VS2026\\Centralizador-de-Descuentos\\CentralizadorDescuentos\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "CentralizadorDescuentos\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\VS2026\\Centralizador-de-Descuentos\\CentralizadorDescuentos\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "CentralizadorDescuentos\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-12T03:11:29.504Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Offer.cs",
               "DocumentMoniker": "C:\\VS2026\\Centralizador-de-Descuentos\\CentralizadorDescuentos\\Models\\Offer.cs",
               "RelativeDocumentMoniker": "CentralizadorDescuentos\\Models\\Offer.cs",
@@ -74,25 +106,23 @@
               "RelativeToolTip": "CentralizadorDescuentos\\Models\\Offer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-07T23:11:37.555Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-07T23:11:37.555Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "FeedService.cs",
               "DocumentMoniker": "C:\\VS2026\\Centralizador-de-Descuentos\\CentralizadorDescuentos\\Modules\\DiscoveryAndFeed\\Services\\FeedService.cs",
               "RelativeDocumentMoniker": "CentralizadorDescuentos\\Modules\\DiscoveryAndFeed\\Services\\FeedService.cs",
               "ToolTip": "C:\\VS2026\\Centralizador-de-Descuentos\\CentralizadorDescuentos\\Modules\\DiscoveryAndFeed\\Services\\FeedService.cs",
               "RelativeToolTip": "CentralizadorDescuentos\\Modules\\DiscoveryAndFeed\\Services\\FeedService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAIAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-07T22:31:30.828Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-07T22:31:30.828Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "ErrorViewModel.cs",
               "DocumentMoniker": "C:\\VS2026\\Centralizador-de-Descuentos\\CentralizadorDescuentos\\Models\\ErrorViewModel.cs",
               "RelativeDocumentMoniker": "CentralizadorDescuentos\\Models\\ErrorViewModel.cs",
@@ -100,17 +130,18 @@
               "RelativeToolTip": "CentralizadorDescuentos\\Models\\ErrorViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-21T19:44:43.083Z"
+              "WhenOpened": "2026-10-21T19:44:43.083Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\VS2026\\Centralizador-de-Descuentos\\CentralizadorDescuentos\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "CentralizadorDescuentos\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\VS2026\\Centralizador-de-Descuentos\\CentralizadorDescuentos\\Controllers\\HomeController.cs",
               "RelativeToolTip": "CentralizadorDescuentos\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-21T19:44:16.895Z"
             }

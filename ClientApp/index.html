@@ -1,13 +1,248 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>clientapp</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centralizador de Descuentos - Conexión Real</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+
+    <div id="app" class="max-w-4xl mx-auto p-4 md:p-6">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-extrabold text-amber-600 mb-2">🍔 Centralizador de Descuentos</h1>
+            <p class="text-gray-600 text-sm md:text-base">Promociones reales conectadas a base de datos y redirección activa</p>
+        </header>
+
+        <!-- Navegación de Vistas -->
+        <div class="flex justify-center gap-4 mb-6">
+            <button onclick="switchView('client')" id="btn-client" class="px-4 py-2 bg-amber-600 text-white rounded-lg font-semibold shadow transition">Vista Cliente (Feed)</button>
+            <button onclick="switchView('admin')" id="btn-admin" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-semibold shadow transition">Panel Admin (Base de Datos)</button>
+        </div>
+
+        <!-- Vista Cliente -->
+        <main id="view-client" class="space-y-4">
+            <div id="offers-container" class="grid gap-4">
+                <!-- Las tarjetas se inyectan dinámicamente -->
+            </div>
+        </main>
+
+        <!-- Vista Admin -->
+        <section id="view-admin" class="hidden bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-6">
+            <h2 class="text-xl font-bold text-gray-800">🛠️ Administrar Ofertas y Base de Datos</h2>
+            <form onsubmit="handleCreateOffer(event)" class="grid gap-4 md:grid-cols-2">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 mb-1">Comercio</label>
+                    <input type="text" id="storeName" required placeholder="Ej. Burger King" class="w-full p-2 border border-gray-300 rounded-lg text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 mb-1">Título de la Promoción</label>
+                    <input type="text" id="title" required placeholder="Ej. 2x1 en Combo Stacker" class="w-full p-2 border border-gray-300 rounded-lg text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 mb-1">Código Promocional</label>
+                    <input type="text" id="promoCode" placeholder="Ej. BK2X1" class="w-full p-2 border border-gray-300 rounded-lg text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 mb-1">URL de Redirección (Oficial)</label>
+                    <input type="url" id="originalUrl" required value="https://www.burgerking.com.ar" class="w-full p-2 border border-gray-300 rounded-lg text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 mb-1">Monto Mínimo</label>
+                    <input type="text" id="minimumSpend" value="Sin mínimo" class="w-full p-2 border border-gray-300 rounded-lg text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 mb-1">Días de Vencimiento</label>
+                    <input type="number" id="expirationDays" value="3" class="w-full p-2 border border-gray-300 rounded-lg text-sm">
+                </div>
+                <div class="md:col-span-2">
+                    <label class="block text-xs font-semibold text-gray-600 mb-1">Restricciones (separadas por barra |)</label>
+                    <input type="text" id="restrictions" value="Válido solo por App|No acumulable|Máximo 1 por usuario" class="w-full p-2 border border-gray-300 rounded-lg text-sm">
+                </div>
+                <div class="md:col-span-2">
+                    <button type="submit" class="w-full py-2 bg-green-600 text-white font-bold rounded-lg shadow hover:bg-green-700 transition">Guardar en Base de Datos</button>
+                </div>
+            </form>
+
+            <div class="border-t pt-4 mt-4">
+                <h3 class="font-bold text-gray-700 mb-2">📊 Analítica de Clics de Salida</h3>
+                <div id="analytics-stats" class="text-sm text-gray-600 bg-gray-50 p-4 rounded-lg">
+                    <!-- Estadísticas de clics -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Base de Datos Inicial simulada en localStorage
+        const defaultOffers = [
+            {
+                id: 1,
+                storeName: "Burger King",
+                title: "2x1 en Combo Stacker Doble",
+                restrictions: ["Válido solo por App", "No acumulable con otras promos", "Máximo 1 por cliente"],
+                minimumSpend: "Sin mínimo",
+                expirationDaysLeft: 2,
+                promoCode: "BK2X1STACKER",
+                originalUrl: "https://www.burgerking.com.ar"
+            },
+            {
+                id: 2,
+                storeName: "Mostaza",
+                title: "30% OFF en Mega Cuarto",
+                restrictions: ["Aplica en local y Take Away", "Presentar cupón al pedir"],
+                minimumSpend: "Mínimo: $3000",
+                expirationDaysLeft: 5,
+                promoCode: "MOSTAZA30",
+                originalUrl: "https://www.mostazaweb.com.ar"
+            }
+        ];
+
+        function getOffers() {
+            const data = localStorage.getItem('db_offers');
+            return data ? JSON.parse(data) : defaultOffers;
+        }
+
+        function saveOffers(offers) {
+            localStorage.setItem('db_offers', JSON.stringify(offers));
+        }
+
+        function getAnalytics() {
+            const data = localStorage.getItem('db_analytics');
+            return data ? JSON.parse(data) : [];
+        }
+
+        function trackClick(offerId, actionType) {
+            const analytics = getAnalytics();
+            analytics.push({ offerId, actionType, timestamp: new Date().toISOString() });
+            localStorage.setItem('db_analytics', JSON.stringify(analytics));
+            renderAnalytics();
+        }
+
+        // Cambio de vistas
+        function switchView(view) {
+            const clientView = document.getElementById('view-client');
+            const adminView = document.getElementById('view-admin');
+            const btnClient = document.getElementById('btn-client');
+            const btnAdmin = document.getElementById('btn-admin');
+
+            if (view === 'client') {
+                clientView.classList.remove('hidden');
+                adminView.classList.add('hidden');
+                btnClient.className = "px-4 py-2 bg-amber-600 text-white rounded-lg font-semibold shadow transition";
+                btnAdmin.className = "px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-semibold shadow transition";
+                renderClientFeed();
+            } else {
+                clientView.classList.add('hidden');
+                adminView.classList.remove('hidden');
+                btnClient.className = "px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-semibold shadow transition";
+                btnAdmin.className = "px-4 py-2 bg-amber-600 text-white rounded-lg font-semibold shadow transition";
+                renderAnalytics();
+            }
+        }
+
+        // Renderizado del Feed de Clientes
+        function renderClientFeed() {
+            const container = document.getElementById('offers-container');
+            const offers = getOffers();
+
+            if (offers.length === 0) {
+                container.innerHTML = `<p class="text-center text-gray-500 py-8">No hay ofertas disponibles en este momento.</p>`;
+                return;
+            }
+
+            container.innerHTML = offers.map(offer => {
+                const hasCode = Boolean(offer.promoCode && offer.promoCode.trim() !== '');
+                return `
+                    <article class="border border-gray-200 rounded-xl p-5 bg-white shadow-sm hover:shadow-md transition">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="font-bold text-gray-900 text-lg">${offer.storeName}</span>
+                            <div class="flex gap-2">
+                                <span class="bg-amber-100 text-amber-800 px-2.5 py-1 rounded-md text-xs font-semibold">${offer.minimumSpend}</span>
+                                <span class="bg-red-100 text-red-800 px-2.5 py-1 rounded-md text-xs font-semibold">Vence en ${offer.expirationDaysLeft} días</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">${offer.title}</h3>
+                        <ul class="list-disc list-inside text-gray-600 text-sm space-y-1 mb-4">
+                            ${offer.restrictions.map(r => `<li>${r}</li>`).join('')}
+                        </ul>
+                        <div class="flex gap-2">
+                            ${hasCode ? `
+                                <button onclick="handleCopy(${offer.id}, '${offer.promoCode}')" id="btn-copy-${offer.id}" class="flex-1 py-2.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-sm transition">
+                                    Copiar código: ${offer.promoCode}
+                                </button>
+                            ` : ''}
+                            <button onclick="handleRedirect(${offer.id}, '${offer.originalUrl}')" class="${hasCode ? 'px-4' : 'flex-1'} py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-lg text-sm border border-gray-300 transition text-center">
+                                Ir a la oferta oficial ↗
+                            </button>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        // Acciones de Usuario
+        function handleCopy(id, code) {
+            navigator.clipboard.writeText(code);
+            trackClick(id, 'COPY_CODE');
+            const btn = document.getElementById(`btn-copy-${id}`);
+            if (btn) {
+                btn.textContent = '¡Código copiado!';
+                btn.className = "flex-1 py-2.5 px-4 bg-green-600 text-white font-semibold rounded-lg text-sm transition";
+                setTimeout(() => {
+                    btn.textContent = `Copiar código: ${code}`;
+                    btn.className = "flex-1 py-2.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-sm transition";
+                }, 2000);
+            }
+        }
+
+        function handleRedirect(id, url) {
+            trackClick(id, 'REDIRECT');
+            window.open(url, '_blank', 'noopener,noreferrer');
+        }
+
+        // Panel Admin: Crear Oferta
+        function handleCreateOffer(e) {
+            e.preventDefault();
+            const offers = getOffers();
+            
+            const newOffer = {
+                id: Date.now(),
+                storeName: document.getElementById('storeName').value,
+                title: document.getElementById('title').value,
+                promoCode: document.getElementById('promoCode').value,
+                originalUrl: document.getElementById('originalUrl').value,
+                minimumSpend: document.getElementById('minimumSpend').value,
+                expirationDaysLeft: parseInt(document.getElementById('expirationDays').value) || 1,
+                restrictions: document.getElementById('restrictions').value.split('|').map(r => r.trim())
+            };
+
+            offers.unshift(newOffer);
+            saveOffers(offers);
+            alert('¡Oferta guardada exitosamente en la base de datos!');
+            e.target.reset();
+            switchView('client');
+        }
+
+        // Panel Admin: Analítica
+        function renderAnalytics() {
+            const analytics = getAnalytics();
+            const statsContainer = document.getElementById('analytics-stats');
+            
+            const totalClicks = analytics.length;
+            const copies = analytics.filter(a => a.actionType === 'COPY_CODE').length;
+            const redirects = analytics.filter(a => a.actionType === 'REDIRECT').length;
+
+            statsContainer.innerHTML = `
+                <p><strong>Total de interacciones registradas:</strong> ${totalClicks}</p>
+                <p><strong>Veces que se copió un código:</strong> ${copies}</p>
+                <p><strong>Veces que se redirigió al sitio oficial:</strong> ${redirects}</p>
+            `;
+        }
+
+        // Inicializar al cargar
+        renderClientFeed();
+    </script>
+</body>
 </html>

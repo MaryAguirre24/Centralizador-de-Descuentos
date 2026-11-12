@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CentralizadorDescuentos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc7943585f6c427430b64bc8dbf61add681fe4a6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7915c97cdc0987ec2c18d4efd1c1a68eb376c04")]
 [assembly: System.Reflection.AssemblyProductAttribute("CentralizadorDescuentos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CentralizadorDescuentos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
